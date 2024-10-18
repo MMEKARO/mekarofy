@@ -3,17 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mekaro Music Downloader</title>
-    <link rel="stylesheet" href="/static/css/style.css">
+    <title>MekaroFy</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/app.js') }}" defer></script>
 </head>
 <body>
     <div class="container">
-        <h1>Mekaro Music Downloader</h1>
-        <input type="text" id="url" placeholder="Insira o link do YouTube">
-        <button onclick="downloadMusic()">Download</button>
-        <div id="status"></div>
-        <ul id="library"></ul>
+        <h1>Bem-vindo ao MekaroFy</h1>
+        <div class="upload-section">
+            <h2>Enviar Música</h2>
+            <form id="uploadForm" method="POST" enctype="multipart/form-data">
+                <input type="file" name="file" accept=".mp3" required>
+                <button type="submit">Upload</button>
+            </form>
+        </div>
+        <div class="download-section">
+            <h2>Músicas Disponíveis</h2>
+            <ul id="musicList">
+                <!-- Lista de músicas será gerada aqui -->
+            </ul>
+        </div>
     </div>
-    <script src="/static/js/app.js"></script>
 </body>
 </html>
